@@ -111,8 +111,8 @@ app.post('/send-email', upload.fields([
       : null,
   ].filter(Boolean);
   
-  const yesLink = `http://13.203.78.120:${port}/response/${requestId}?action=yes`;
-  const noLink = `http://13.203.78.120:${port}/response/${requestId}?action=no`;
+  const yesLink = `http://13.203.78.120:5500/response/${requestId}?action=yes`;
+  const noLink = `http://13.203.78.120:5500/response/${requestId}?action=no`;
   
 
 let totalSize = 0;
