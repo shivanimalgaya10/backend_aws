@@ -20,7 +20,10 @@ const clients = new Map();
 
 // Sample
 // Configure CORS
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', // Replace with your frontend URL
+  credentials: true, // Allow cookies and credentials to be sent
+}));
 app.use(express.json());
 
 // Configure Multer for file uploads
@@ -112,9 +115,20 @@ app.post('/send-email', upload.fields([
   const noLink = `http://localhost:${port}/response/${requestId}?action=no`;
   
 
+let totalSize = 0;
+attachments.forEach(file => {
+  totalSize += file.size;
+});
+
+console.log(`Total attachment size: ${totalSize / (1024 * 1024)} MB`);
+
+if (totalSize > 25 * 1024 * 1024) {  // 25MB limit
+  return res.status(400).json({ message: 'Attachments exceed the maximum size of 25MB' });
+}
+
   const mailOptions = {
     from: email,
-    to: 'blackgrapes.arpinjain@gmail.com', // Replace with your recipient email
+    to: 'shivanimalgaya10@gmail.com', // Replace with your recipient email
     subject: 'Registration Form Submission',
     html: `
     <p>
