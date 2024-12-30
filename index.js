@@ -21,7 +21,7 @@ const clients = new Map();
 // Sample
 // Configure CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // Replace with your frontend URL
+  origin: 'https://apprenticeship.blackgrapessoftech.com', // Replace with your frontend URL
   credentials: true, // Allow cookies and credentials to be sent
 }));
 app.use(express.json());
@@ -128,7 +128,7 @@ if (totalSize > 25 * 1024 * 1024) {  // 25MB limit
 
   const mailOptions = {
     from: email,
-    to: 'shivanimalgaya10@gmail.com', // Replace with your recipient email
+    to: 'blackgrapes.arpinjain@gmail.com', // Replace with your recipient email
     subject: 'Registration Form Submission',
     html: `
     <p>
@@ -203,7 +203,7 @@ app.get('/response/:requestId', (req, res) => {
       html: `
     <p>Dear ${fullName},</p>
     <p>Your Demat account has been approved. You can now proceed with the payment by clicking the link below:</p>
-    <p><a href="http://localhost:3000/checkout" target="_blank" style="color: #007bff; text-decoration: none;">Click here to proceed to payment</a></p>
+    <p><a href="https://apprenticeship.blackgrapessoftech.com/checkout" target="_blank" style="color: #007bff; text-decoration: none;">Click here to proceed to payment</a></p>
     <p>If you have any questions, feel free to contact us.</p>
     <p>Thank you for choosing us!</p>
         
@@ -239,8 +239,8 @@ const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
 const prod_status_URL = "https://api.phonepe.com/apis/hermes/pg/v1/status";
 
 const redirectUrl = "http://localhost:8000/status";
-const successUrl = "http://localhost:5173/payment-success";
-const failureUrl = "http://localhost:5173/payment-failure";
+const successUrl = "http://localhost:3000/payment-success";
+const failureUrl = "http://localhost:3000/payment-failure";
 
 // Create Order Route
 app.post('/create-order', async (req, res) => {
