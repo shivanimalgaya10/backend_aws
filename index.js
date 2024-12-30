@@ -11,11 +11,11 @@ require('dotenv').config();
 const WebSocket = require('ws');
 
 const app = express();
-const port = 5001;
+const port = process.env.PORT;
 
 // Create an HTTP server
 const server = http.createServer(app);
-const wss = new WebSocket.Server({port: 5000});
+const wss = new WebSocket.Server({port: process.env.WS_PORT });
 const clients = new Map();
 
 // Sample
@@ -60,7 +60,8 @@ app.post('/send-email/front', (req, res) => {
   // Email options
   const mailOptions = {
     from: email,
-    to: 'blackgrapes.arpinjain@gmail.com', // Replace with your recipient email
+    to: 'shivanimalgaya10@gmail.com',
+    // to: 'blackgrapes.arpinjain@gmail.com', // Replace with your recipient email
     subject: 'New Meeting Registration',
     text: `Form Type: ${formType}\nName: ${name}\nMobile: ${mobile}\nEmail: ${email}`
   };
@@ -68,6 +69,7 @@ app.post('/send-email/front', (req, res) => {
   // Send email
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
+      console.error('Error sending email:', error); 
       return res.status(500).send('Error sending email');
     } else {
       res.status(200).send('Email sent successfully');
