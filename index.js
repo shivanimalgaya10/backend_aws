@@ -111,8 +111,8 @@ app.post('/send-email', upload.fields([
       : null,
   ].filter(Boolean);
   
-  const yesLink = `http://13.203.78.120:5500/response/${requestId}?action=yes`;
-  const noLink = `http://13.203.78.120:5500/response/${requestId}?action=no`;
+  const yesLink = `https://aws.blackgrapessoftech.com/response/${requestId}?action=yes`;
+  const noLink = `https://aws.blackgrapessoftech.com/response/${requestId}?action=no`;
   
 
 let totalSize = 0;
@@ -238,9 +238,12 @@ const MERCHANT_ID = "M22MU4WHSIF5F";
 const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
 const prod_status_URL = "https://api.phonepe.com/apis/hermes/pg/v1/status";
 
-const redirectUrl = "http://localhost:8000/status";
-const successUrl = "http://localhost:3000/payment-success";
-const failureUrl = "http://localhost:3000/payment-failure";
+// const redirectUrl = "http://localhost:8000/status";
+// const successUrl = "http://localhost:3000/payment-success";
+// const failureUrl = "http://localhost:3000/payment-failure";
+const redirectUrl = "https://aws.blackgrapessoftech.com/status";
+const successUrl = "https://apprenticeship.blackgrapessoftech.com/payment-success";
+const failureUrl = "https://apprenticeship.blackgrapessoftech.com/payment-failure";
 
 // Create Order Route
 app.post('/create-order', async (req, res) => {
