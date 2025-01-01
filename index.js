@@ -5,6 +5,7 @@ const path = require('path');
 const cors = require('cors');
 const axios = require('axios');
 const http = require('http'); // Import the http module
+const https=require('https')
 const crypto = require('crypto');
 const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
@@ -14,7 +15,7 @@ const app = express();
 const port = process.env.PORT;
 
 // Create an HTTP server
-const server = http.createServer(app);
+const server = https.createServer(app);
 const wss = new WebSocket.Server({port: process.env.WS_PORT });
 const clients = new Map();
 
