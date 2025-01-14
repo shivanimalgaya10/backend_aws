@@ -15,7 +15,7 @@ const app = express();
 const port = process.env.PORT;
 
 // Create an HTTP server
-const server = https.createServer(app);
+const server = http.createServer(app);
 const wss = new WebSocket.Server({port: process.env.WS_PORT });
 const clients = new Map();
 
@@ -196,7 +196,8 @@ app.get('/response/:requestId', (req, res) => {
         pass: process.env.EMAIL_PASS, // Your email password or app password
       },
     });
-
+   console.log("email",email);
+   
     const mailOptions = {
       from: process.env.EMAIL_USER, // Your email address
       to: email, // User's email address
@@ -233,18 +234,20 @@ app.get('/response/:requestId', (req, res) => {
 
 
 // Payment Gateway Configuration
-const MERCHANT_KEY = "48b460bd-1463-497b-a621-8f9f73e193cd";
-const MERCHANT_ID = "M22MU4WHSIF5F";
-
+// const MERCHANT_KEY = "48b460bd-1463-497b-a621-8f9f73e193cd";
+// const MERCHANT_ID = "M22MU4WHSIF5F";
+// const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
+// const prod_status_URL = "https://api.phonepe.com/apis/hermes/pg/v1/status";
+// const redirectUrl = "https://aws.blackgrapessoftech.com/status";
+// const successUrl = "https://apprenticeship.blackgrapessoftech.com/payment-success";
+// const failureUrl = "https://apprenticeship.blackgrapessoftech.com/payment-failure";
+const MERCHANT_KEY = "618fa17f-c54c-4aff-9f5b-8e10b3e835f2";
+const MERCHANT_ID = "M22SBE31INURY";
 const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
 const prod_status_URL = "https://api.phonepe.com/apis/hermes/pg/v1/status";
-
-// const redirectUrl = "http://localhost:8000/status";
-// const successUrl = "http://localhost:3000/payment-success";
-// const failureUrl = "http://localhost:3000/payment-failure";
-const redirectUrl = "https://aws.blackgrapessoftech.com/status";
-const successUrl = "https://apprenticeship.blackgrapessoftech.com/payment-success";
-const failureUrl = "https://apprenticeship.blackgrapessoftech.com/payment-failure";
+const redirectUrl = "https://aws.blackgrapesgroup.com/status";
+const successUrl =  "https://education.blackgrapesgroup.com/payment-success";
+const failureUrl =  "https://education.blackgrapesgroup.com/payment-failure ";
 
 // Create Order Route
 app.post('/create-order', async (req, res) => {
