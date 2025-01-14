@@ -22,7 +22,7 @@ const clients = new Map();
 // Sample
 // Configure CORS
 app.use(cors({
-  origin: 'https://apprenticeship.blackgrapessoftech.com', // Replace with your frontend URL
+  origin: 'https://apprenticeship.blackgrapesgroup.com', // Replace with your frontend URL
   credentials: true, // Allow cookies and credentials to be sent
 }));
 app.use(express.json());
@@ -245,7 +245,7 @@ const MERCHANT_KEY = "618fa17f-c54c-4aff-9f5b-8e10b3e835f2";
 const MERCHANT_ID = "M22SBE31INURY";
 const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
 const prod_status_URL = "https://api.phonepe.com/apis/hermes/pg/v1/status";
-const redirectUrl = "https://aws.blackgrapesgroup.com/status";
+const redirectUrl = "https://aws.blackgrapessoftech.com/status";
 const successUrl =  "https://education.blackgrapesgroup.com/payment-success";
 const failureUrl =  "https://education.blackgrapesgroup.com/payment-failure ";
 
