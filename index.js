@@ -112,8 +112,8 @@ app.post('/send-email', upload.fields([
       : null,
   ].filter(Boolean);
   
-  const yesLink = `https://aws.blackgrapessoftech.com/response/${requestId}?action=yes`;
-  const noLink = `https://aws.blackgrapessoftech.com/response/${requestId}?action=no`;
+  const yesLink = `https://aws.blackgrapesgroup.com/response/${requestId}?action=yes`;
+  const noLink = `https://aws.blackgrapesgroup.com/response/${requestId}?action=no`;
   
 
 let totalSize = 0;
@@ -205,7 +205,7 @@ app.get('/response/:requestId', (req, res) => {
       html: `
     <p>Dear ${fullName},</p>
     <p>Your Demat account has been approved. You can now proceed with the payment by clicking the link below:</p>
-    <p><a href="https://apprenticeship.blackgrapessoftech.com/checkout" target="_blank" style="color: #007bff; text-decoration: none;">Click here to proceed to payment</a></p>
+    <p><a href="https://apprenticeship.blackgrapesgroup.com/checkout" target="_blank" style="color: #007bff; text-decoration: none;">Click here to proceed to payment</a></p>
     <p>If you have any questions, feel free to contact us.</p>
     <p>Thank you for choosing us!</p>
         
@@ -238,14 +238,14 @@ app.get('/response/:requestId', (req, res) => {
 // const MERCHANT_ID = "M22MU4WHSIF5F";
 // const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
 // const prod_status_URL = "https://api.phonepe.com/apis/hermes/pg/v1/status";
-// const redirectUrl = "https://aws.blackgrapessoftech.com/status";
+// const redirectUrl = "https://aws..com/status";
 // const successUrl = "https://apprenticeship.blackgrapessoftech.com/payment-success";
 // const failureUrl = "https://apprenticeship.blackgrapessoftech.com/payment-failure";
 const MERCHANT_KEY = "618fa17f-c54c-4aff-9f5b-8e10b3e835f2";
 const MERCHANT_ID = "M22SBE31INURY";
 const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
 const prod_status_URL = "https://api.phonepe.com/apis/hermes/pg/v1/status";
-const redirectUrl = "https://aws.blackgrapessoftech.com/status";
+const redirectUrl = "https://aws.blackgrapesgroup.com/status";
 const successUrl =  "https://education.blackgrapesgroup.com/payment-success";
 const failureUrl =  "https://education.blackgrapesgroup.com/payment-failure ";
 
